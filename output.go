@@ -1,5 +1,9 @@
 package output
 
+import (
+	tm "github.com/buger/goterm"
+)
+
 const (
 	BLACK = iota
 	RED
@@ -9,10 +13,6 @@ const (
 	MAGENTA
 	CYAN
 	WHITE
-)
-
-import (
-	tm "github.com/buger13/goterm"
 )
 
 func Error(err error) {
