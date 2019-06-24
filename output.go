@@ -1,6 +1,8 @@
 package output
 
 import (
+	"os"
+
 	tm "github.com/buger/goterm"
 )
 
@@ -23,6 +25,18 @@ func Error(err error) {
 func ErrorString(err string) {
 	tm.Println(tm.Color(err, tm.RED))
 	tm.Flush()
+}
+
+func ErrorAndExit(err error, exitCode bool) {
+	tm.Println(tm.Color(err.Error(), tm.RED))
+	tm.Flush()
+	os.Exit(exitCode)
+}
+
+func ErrorStringAndExit(err error, exitCode bool) {
+	tm.Println(tm.Color(err, tm.RED))
+	tm.Flush()
+	os.Exit(exitCode)
 }
 
 func Success(message string) {
