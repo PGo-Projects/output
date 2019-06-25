@@ -27,13 +27,13 @@ func ErrorString(err string) {
 	tm.Flush()
 }
 
-func ErrorAndExit(err error, exitCode bool) {
+func ErrorAndExit(err error, exitCode int) {
 	tm.Println(tm.Color(err.Error(), tm.RED))
 	tm.Flush()
 	os.Exit(exitCode)
 }
 
-func ErrorStringAndExit(err error, exitCode bool) {
+func ErrorStringAndExit(err string, exitCode int) {
 	tm.Println(tm.Color(err, tm.RED))
 	tm.Flush()
 	os.Exit(exitCode)
