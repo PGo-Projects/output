@@ -1,6 +1,7 @@
 package output
 
 import (
+	"fmt"
 	"os"
 
 	tm "github.com/buger/goterm"
@@ -16,6 +17,16 @@ const (
 	CYAN
 	WHITE
 )
+
+func DebugError(debugMode bool, err error) {
+	tm.Println(tm.Color(fmt.Sprintf("[DEBUG] %s", err.Error()), tm.RED))
+	tm.Flush()
+}
+
+func DebugString(debugMode bool, s string, color int) {
+	tm.Println(tm.Color(fmt.Sprintf("[DEBUG] %s", s), color))
+	tm.Flush()
+}
 
 func Error(err error) {
 	tm.Println(tm.Color(err.Error(), tm.RED))
