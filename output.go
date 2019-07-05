@@ -16,6 +16,8 @@ const (
 	MAGENTA
 	CYAN
 	WHITE
+
+	StandardErrCode = 1
 )
 
 func DebugError(debugMode bool, err error) {
