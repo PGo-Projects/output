@@ -3,11 +3,17 @@ package output
 import tm "github.com/buger/goterm"
 
 func Error(err error) {
+	if err == nil {
+		return
+	}
 	tm.Print(tm.Color(err.Error(), tm.RED))
 	tm.Flush()
 }
 
 func Errorln(err error) {
+	if err == nil {
+		return
+	}
 	tm.Println(tm.Color(err.Error(), tm.RED))
 	tm.Flush()
 }
@@ -23,12 +29,18 @@ func ErrorStringln(err string) {
 }
 
 func ErrorAndPanic(err error) {
+	if err == nil {
+		return
+	}
 	tm.Print(tm.Color(err.Error(), tm.RED))
 	tm.Flush()
 	panic(err)
 }
 
 func ErrorAndPanicln(err error) {
+	if err == nil {
+		return
+	}
 	tm.Println(tm.Color(err.Error(), tm.RED))
 	tm.Flush()
 	panic(err)

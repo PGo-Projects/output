@@ -7,11 +7,17 @@ import (
 )
 
 func DebugError(debugMode bool, err error) {
+	if err == nil {
+		return
+	}
 	tm.Print(tm.Color(fmt.Sprintf("[DEBUG] %s", err.Error()), tm.RED))
 	tm.Flush()
 }
 
 func DebugErrorln(debugMode bool, err error) {
+	if err == nil {
+		return
+	}
 	tm.Println(tm.Color(fmt.Sprintf("[DEBUG] %s", err.Error()), tm.RED))
 	tm.Flush()
 }
