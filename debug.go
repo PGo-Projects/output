@@ -1,43 +1,37 @@
 package output
 
-import (
-	"fmt"
+var DEBUG = false
 
-	tm "github.com/buger/goterm"
-)
+func DebugError(err error) {
+	if DEBUG {
+		if err == nil {
+			Print("[DEBUG] No error\n", GREEN)
+			return
+		}
 
-func DebugError(debugMode bool, err error) {
-	if err == nil {
-		return
-	}
-
-	if debugMode {
-		tm.Print(tm.Color(fmt.Sprintf("[DEBUG] %s", err.Error()), tm.RED))
-		tm.Flush()
+		Printf(RED, "[DEBUG] %s", err.Error())
 	}
 }
 
-func DebugErrorln(debugMode bool, err error) {
-	if err == nil {
-		return
-	}
+func DebugErrorln(err error) {
+	if DEBUG {
+		if err == nil {
+			Println("[DEBUG] No error", GREEN)
+			return
+		}
 
-	if debugMode {
-		tm.Println(tm.Color(fmt.Sprintf("[DEBUG] %s", err.Error()), tm.RED))
-		tm.Flush()
-	}
-}
-
-func DebugString(debugMode bool, s string, color int) {
-	if debugMode {
-		tm.Print(tm.Color(fmt.Sprintf("[DEBUG] %s", s), color))
-		tm.Flush()
+		Printf(RED, "[DEBUG] %s\n", err.Error())
 	}
 }
 
-func DebugStringln(debugMode bool, s string, color int) {
-	if debugMode {
-		tm.Println(tm.Color(fmt.Sprintf("[DEBUG] %s", s), color))
-		tm.Flush()
+func DebugString(s string, color int) {
+	if DEBUG {
+		Printf(color, "[DEBUG] %s", s)
+	}
+}
+
+func DebugStringln(s string, color int) {
+	if DEBUG {
+		Printf(color, "[DEBUG] %s\n", s)
 	}
 }
