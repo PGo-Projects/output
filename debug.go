@@ -5,7 +5,7 @@ var DEBUG = false
 func DebugError(err error) {
 	if DEBUG {
 		if err == nil {
-			Print("[DEBUG] No error\n", GREEN)
+			Print("[DEBUG] No error", GREEN)
 			return
 		}
 
@@ -20,7 +20,7 @@ func DebugErrorln(err error) {
 			return
 		}
 
-		Printf(RED, "[DEBUG] %s\n", err.Error())
+		Printfln(RED, "[DEBUG] %s", err.Error())
 	}
 }
 
@@ -32,6 +32,6 @@ func DebugString(s string, color int) {
 
 func DebugStringln(s string, color int) {
 	if DEBUG {
-		Printf(color, "[DEBUG] %s\n", s)
+		Printfln(color, "[DEBUG] %s", s)
 	}
 }

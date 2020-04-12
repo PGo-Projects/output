@@ -2,6 +2,7 @@ package output
 
 import (
 	"fmt"
+	"strings"
 
 	tm "github.com/buger/goterm"
 )
@@ -36,6 +37,11 @@ func Print(message string, color int) {
 
 func Printf(color int, message string, args ...interface{}) {
 	tm.Print(tm.Color(fmt.Sprintf(message, args...), color))
+	tm.Flush()
+}
+
+func Printfln(color int, message string, args ...interface{}) {
+	tm.Println(tm.Color(fmt.Sprintf(message, args...), color))
 	tm.Flush()
 }
 
