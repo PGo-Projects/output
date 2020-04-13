@@ -2,7 +2,6 @@ package output
 
 import (
 	"fmt"
-	"strings"
 
 	tm "github.com/buger/goterm"
 )
